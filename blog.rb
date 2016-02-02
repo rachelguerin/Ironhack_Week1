@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Post
 	attr_reader :title, :text, :date
 	def initialize(title,text,sponsored=false)
@@ -16,8 +18,7 @@ class Blog
 	attr_reader :posts
 	def initialize
 		@posts = []
-		@maxPostsPerPage = 5
-		@lastPost = 0
+		@maxPostsPerPage = 3
 		@pages = 0
 		@currentPage = 1
 	end
@@ -76,7 +77,7 @@ class Blog
 			i += 1
 			p = i.to_s
 			if @currentPage == i
-				p = "[#{p}]"
+				p = "[#{p}]".colorize(:red)
 			end
 			footerString = "#{footerString} #{p}"
 		end
