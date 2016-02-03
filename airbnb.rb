@@ -102,24 +102,22 @@ class TextBnB
 	end
 
 	def main
-		orderByPrice
-		action = ""
+		action = "price"
 		while action != 'exit' do
 			printInstructions
-			action = gets.chomp
 			case action
-			when "price"
-				orderByPrice
-			when "capacity"
-				orderByCapacity
-			when /\d/
-				getThisPrice(action.to_i)
-			when "exit"
-				break
-			else
-				city_or_err(action)
-			end
-
+				when "price"
+					orderByPrice
+				when "capacity"
+					orderByCapacity
+				when /\d/
+					getThisPrice(action.to_i)
+				when "exit"
+					break
+				else
+					city_or_err(action)
+				end
+			action = gets.chomp
 		end
 	end
 end
